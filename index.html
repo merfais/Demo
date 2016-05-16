@@ -1,9 +1,111 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
+
 	<head>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title>Demo演示 学习 总结</title>
+		<link rel="stylesheet" type="text/css" href="bootstrap-3.3.5/css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<script src="jquery2.2.2/jquery-2.2.2.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		</script>
 	</head>
+
 	<body>
+		<div class="head container">
+			<h1>Demo的学习,演示和总结</h1>
+			<p>--2016年5月16日</p>
+		</div>
+		<div class="body">
+			<div class="container main-body">
+				<h2>重要的,易混易忘的知识点</h2>
+				<ul class="list-unstyled">
+					<li>
+						<h3>1. 盒子模型</h3>
+						<ul class="list-unstyled sj">
+							<li class="container">
+								<h4 >1.1. 元素的分类</h4>
+								<p col-md-12><span class="text-primary">块级元素 --</span> 在html中<code>&lt;div&gt;、&lt;p&gt;、&lt;h&gt;、&lt;ul&gt;、&lt;li&gt;、&lt;form&gt;</code>就是块级元素</p>
+								<p class="text-warning col-md-2"> 块级元素特点：</p>
+								<p class="sj-2 col-md-10 col-sm-offset-1">1、每个块级元素都从新的一行开始，并且其后的元素也另起一行。（真霸道，一个块级元素独占一行）</p>
+								<p class="sj-2 col-md-10 col-sm-offset-1">2、元素的高度、宽度、行高以及顶和底边距都可设置。</p>
+								<p class="sj-2 col-md-10 col-sm-offset-1">3、元素宽度在不设置的情况下，是它本身父容器的100%（和父元素的宽度一致），除非设定一个宽度。</p>
+								<p class="col-md-12"><span class="text-primary">内联元素</span> -- 在html中，<code>&lt;span&gt;、&lt;a&gt;、&lt;label&gt;、&lt;strong&gt;、&lt;em&gt;、</code> 就是典型的内联元素（行内元素）（inline）元素。</p>
+								<p class="text-warning col-md-12">内联元素特点：</p>
+								<p class="sj-2 col-md-10 col-sm-offset-1">1、和其他元素都在一行上；</p>
+								<p class="sj-2 col-md-10 col-sm-offset-1">2、元素的高度、宽度及顶部和底部边距不可设置；margin padding 可用</p>
+								<p class="sj-2 col-md-10 col-md-offset-1">3、元素的宽度就是它包含的文字或图片的宽度，不可改变。 内联块状元素</p>
+								<p class="col-md-12"><span class="text-primary">内联块状元素</span> -- <code>&lt;img&gt;&lt;input&gt;</code>标签就是这种内联块状标签。</p>
+								<p class="text-warning col-md-12">同时具备内联元素、块状元素的特点 元素特点：</p>
+								<p class="sj-2 col-md-10 col-md-offset-1">1、和其他元素都在一行上；</p>
+								<p class="sj-2 col-md-10 col-md-offset-1">2、元素的高度、宽度、行高以及顶和底边距都可设置。</p>
+							</li>
+							<li class="container">
+								<h4 >1.2. 盒子模型</h4>
+								<p class="text-primary col-sm-12">盒子模型--由内向外依次是 content, padding, border, margin</p>
+								<p class="text-warning col-sm-12">盒子模型的高度和宽度的计算:<small class="text-muted">(此处只考虑标准文档流)</small></p>
+								<p class="col-sm-11 col-sm-offset-1">
+									<span class="col-sm-4 sjt-2">1. 在盒子模型中，我们设置的宽度都是 <b>内容宽度</b>(width:300px)，不是整个盒子的宽度。
+										<br/>2. 而整个盒子的宽度是：（内容宽度 + border宽度 + padding宽度 + margin宽度）之和。
+										<br/>3. 下面会讲到盒子宽度的计算</span>
+									<img class="col-sm-7" style="width: 60%;" src="img/20160516232659.jpg" alt="盒子模型宽度的计算" />
+								</p>
+								<p class="col-sm-11 col-sm-offset-1 text-danger">那么，就会出现一个问题：如果父容器宽度不变，我们手动增大margin、border或padding其中一项的宽度值，都会导致内容宽度的减少。<br/> 极端情况下，如果内容的宽度压缩到不能再压缩了（例如一个字的宽度），那么浏览器会强迫增加父容器的宽度。这不是我们想要看到的。
+								</p>
+								<p class="text-warning col-sm-12">box-sizing :</p>
+								<p class="col-sm-11 col-sm-offset-1">box-sizing：content-box | border-box 默认值：content-box</p>
+								<p class="col-sm-11 col-sm-offset-1">content-box： padding和border不被包含在定义的width和height之内。
+									<br/>对象的实际宽度等于设置的width值和border、padding之和，即 ( Element width = width + border + padding) 此属性表现为标准模式下的盒模型。</p>
+								<p class="col-sm-11 col-sm-offset-1"> border-box： padding和border被包含在定义的width和height之内。
+									<br/> 对象的实际宽度就等于设置的width值，即使定义有border和padding也不会改变对象的实际宽度，即( Element width = width )</p>
+								<p class="col-sm-12 text-warning">纵向margin的重叠(塌陷) :</p>
+								<p class="col-sm-11 col-sm-offset-1">margin属性在纵向相遇时,会出现塌陷,或者叫吃掉的现象.表现行为:
+									<br/><span class="col-sm-offset-1">margin值相同  --> 距离为一个margin值, 吃掉一个margin值</span>
+									<br /><span class="col-sm-offset-1">margin值不同 --> 距离为margin较大者, 大的margin值吃掉小的margin值</span>
+								</p>
+							</li>
+							<li class="container">
+								<h4>1.3. js jquery获取元素高度、宽度的方式</h4>
+								
+							</li>
+							<li>
+								<h4></h4>
+							</li>
+							<li>
+								<h4></h4>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<h3>2. 定位和浮动</h3>
+						<ul class="list-unstyled sj">
+							<li>
+								<h4>2.1. 定位的四种方式</h4>
+							</li>
+							<li>
+								<h4>2.2. 清除浮动的方式</h4>
+							</li>
+							<li>
+								<h4>2.3. z-index</h4>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<h3>3. 选择器</h3>
+					</li>
+					<li>
+						<h3></h3>
+					</li>
+					<li>
+						<h3></h3>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		</div>
+		<div class="foot"></div>
 	</body>
+
 </html>
