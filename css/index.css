@@ -21,8 +21,18 @@ body {
 .head p {
 	text-align: right;
 	color: #EEE;
-	font-size: 2em;
+	font-size: 1.2em;
 	text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+@media only screen and (min-width:992px) {
+	.head p {
+		text-align: right;
+		color: #EEE;
+		font-size: 1.8em;
+		text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+		padding-right: 20%;
+	}
 }
 
 .body {
@@ -55,6 +65,14 @@ body {
 		width: 80%;
 		height: 80%;
 	}
+	.sf-9 {
+		width: 90%;
+		height: 90%;
+	}
+	.sf-10 {
+		width: 100%;
+		height: 100%;
+	}
 }
 
 .body .p-title {
@@ -65,4 +83,8 @@ body {
 
 .body .sj-2 {
 	padding-left: 20px;
+}
+
+.container img{
+	box-shadow: 1px 3px 2px 2px rgba(0,0,0,.1);
 }
