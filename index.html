@@ -47,7 +47,7 @@
 									<span class="col-md-4 sjt-2">1. 在盒子模型中，我们设置的宽度都是 <b>内容宽度</b>(width:300px)，不是整个盒子的宽度。
 										<br/>2. 而整个盒子的宽度是：（内容宽度 + border宽度 + padding宽度 + margin宽度）之和。
 										<br/>3. 下面会讲到盒子宽度的计算</span>
-									<img class="col-md-7 sf-8" src="img/20160516232659.jpg" alt="盒子模型宽度的计算" />
+									<img class="col-md-7 sf-8" src="img/caclboxwidth.jpg" alt="盒子模型宽度的计算" />
 								</p>
 								<p class="col-md-11 col-md-offset-1 text-danger">那么，就会出现一个问题：如果父容器宽度不变，我们手动增大margin、border或padding其中一项的宽度值，都会导致内容宽度的减少。<br/> 极端情况下，如果内容的宽度压缩到不能再压缩了（例如一个字的宽度），那么浏览器会强迫增加父容器的宽度。这不是我们想要看到的。
 								</p>
@@ -148,9 +148,9 @@
 								<p class="col-md-12"><span class="col-md-2 text-warning">层叠上下文</span><span class="-col-md-10">相对于文档流中的普通元素而言,层叠上下文元素指获得z轴属性,即浮于普通元素上方并获得层叠顺序规则的限制</span></p>
 								<p class="text-primary col-md-12">重要规则</p>
 								<p class="col-md-12">
-									<img class="col-md-6 sf-8" src="img/20160518183851.jpg" alt="层叠顺序规则图" />
+									<img class="col-md-6 sf-8" src="img/zorder.jpg" alt="层叠顺序规则图" />
 
-									<span class="col-md-6">1 . backgroud/border | block块状盒子 | float浮动盒子 | inline/inline-block盒子 属于普通元素级别<br/><br/>
+									<span class="col-md-6 sjt-2">1 . backgroud/border | block块状盒子 | float浮动盒子 | inline/inline-block盒子 属于普通元素级别<br/><br/>
 										2 . 负z-index | z-index:auto/z-index:0/不依赖z-inde的层叠上下文 | 正z-index 属于获得层叠上下文属性的元素级别<br/><br/>
 										3 . 定位元素(position:relative | absolute | fixed) z-index就是默认的auto级<br/></span>
 
@@ -210,7 +210,7 @@
 								<p class="col-md-11 col-md-offset-1">4 ) . 层叠样式表,层叠的概念 : 即权重相同的情况下，后面出现的样式覆盖前面出现的样式</p>
 								<p class="text-primary col-md-12">样式的优先级排序(由大到小)</p>
 								<p class="text-success col-md-11 col-md-offset-1"> <strong> !important > 内联的  > #id > .class > element > 继承的 </strong></p>
-								<img class="col-md-10 col-md-offset-1 sf-8" src="img/样式优先级.jpg" alt="样式优先级演示图" />
+								<img class="col-md-10 col-md-offset-1 sf-8" src="img/classorder.jpg" alt="样式优先级演示图" />
 
 							</li>
 						</ul>
