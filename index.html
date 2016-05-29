@@ -1,262 +1,185 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title>演示 学习 总结</title>
-		<link rel="stylesheet" type="text/css" href="bootstrap-3.3.5/css/bootstrap.css" />
+		<title>毕文清-个人简历</title>
 		<link rel="stylesheet" type="text/css" href="css/index.css" />
 		<script src="jquery2.2.2/jquery-2.2.2.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 
 	<body>
-		<div class="head container">
-			<h1>学习 演示 总结</h1>
-			<p>--重要的,易混易忘的知识点 2016年5月16日</p>
+		<div class="head">
+			<img class="border-circle" src="img/jl-logo.jpg" alt="个人简历" />
+			<h1>毕文清-前端工程师</h1>
+			<ul class="nav">
+				<li><a href="note.html">关于自己</a></li>
+				<li><a href="http://blog.csdn.net/kaifeixiongdi" rel="nofollow" target="_blank">CSDN博客</a></li>
+				<li><a href="https://github.com/merfais/" rel="nofollow" target="_blank">github</a></li>
+			</ul>
 		</div>
-		<div class="body">
-			<div id="mainContainer" class="container">
-				<ul class="list-unstyled">
-					<li>
-						<h2>1. 盒子模型</h2>
-						<ul class="list-unstyled sj">
-							<li class="container">
-								<h3>1.1. 元素的分类</h3>
-								<p col-md-12><span class="text-primary">块级元素 --</span> 在html中<code>&lt;div&gt;、&lt;p&gt;、&lt;h&gt;、&lt;ul&gt;、&lt;li&gt;、&lt;form&gt;</code>就是块级元素</p>
-								<p class="text-warning col-md-2"> 块级元素特点：</p>
-								<p class="sj-2 col-md-10 col-md-offset-1">1、每个块级元素都从新的一行开始，并且其后的元素也另起一行。（真霸道，一个块级元素独占一行）</p>
-								<p class="sj-2 col-md-10 col-md-offset-1">2、元素的高度、宽度、行高以及顶和底边距都可设置。</p>
-								<p class="sj-2 col-md-10 col-md-offset-1">3、元素宽度在不设置的情况下，是它本身父容器的100%（和父元素的宽度一致），除非设定一个宽度。</p>
-								<p class="col-md-12"><span class="text-primary">内联元素</span> -- 在html中，<code>&lt;span&gt;、&lt;a&gt;、&lt;label&gt;、&lt;strong&gt;、&lt;em&gt;、</code> 就是典型的内联元素（行内元素）（inline）元素。</p>
-								<p class="text-warning col-md-12">内联元素特点：</p>
-								<p class="sj-2 col-md-10 col-md-offset-1">1、和其他元素都在一行上；</p>
-								<p class="sj-2 col-md-10 col-md-offset-1">2、元素的高度、宽度及顶部和底部边距不可设置；margin padding 可用</p>
-								<p class="sj-2 col-md-10 col-md-offset-1">3、元素的宽度就是它包含的文字或图片的宽度，不可改变。 内联块状元素</p>
-								<p class="col-md-12"><span class="text-primary">内联块状元素</span> -- <code>&lt;img&gt;&lt;input&gt;</code>标签就是这种内联块状标签。</p>
-								<p class="text-warning col-md-12">同时具备内联元素、块状元素的特点 元素特点：</p>
-								<p class="sj-2 col-md-10 col-md-offset-1">1、和其他元素都在一行上；</p>
-								<p class="sj-2 col-md-10 col-md-offset-1">2、元素的高度、宽度、行高以及顶和底边距都可设置。</p>
-							</li>
-							<li class="container">
-								<h3>1.2. 盒子模型</h3>
-								<p class="text-primary col-md-12">盒子模型--由内向外依次是 content, padding, border, margin</p>
-								<p class="text-warning col-md-12">盒子模型的高度和宽度的计算:<small class="text-muted">(此处只考虑标准文档流)</small></p>
-								<p class="col-md-11 col-md-offset-1">
-									<span class="col-md-4 sjt-2">1. 在盒子模型中，我们设置的宽度都是 <b>内容宽度</b>(width:300px)，不是整个盒子的宽度。
-										<br/>2. 而整个盒子的宽度是：（内容宽度 + border宽度 + padding宽度 + margin宽度）之和。
-										<br/>3. 下面会讲到盒子宽度的计算</span>
-									<img class="col-md-7 sf-8" src="img/caclboxwidth.jpg" alt="盒子模型宽度的计算" />
-								</p>
-								<p class="col-md-11 col-md-offset-1 text-danger">那么，就会出现一个问题：如果父容器宽度不变，我们手动增大margin、border或padding其中一项的宽度值，都会导致内容宽度的减少。<br/> 极端情况下，如果内容的宽度压缩到不能再压缩了（例如一个字的宽度），那么浏览器会强迫增加父容器的宽度。这不是我们想要看到的。
-								</p>
-								<p class="text-warning col-md-12">box-sizing :</p>
-								<p class="col-md-11 col-md-offset-1">box-sizing：content-box | border-box 默认值：content-box</p>
-								<p class="col-md-11 col-md-offset-1">content-box： padding和border不被包含在定义的width和height之内。
-									<br/>对象的实际宽度等于设置的width值和border、padding之和，即 ( Element width = width + border + padding) 此属性表现为标准模式下的盒模型。</p>
-								<p class="col-md-11 col-md-offset-1"> border-box： padding和border被包含在定义的width和height之内。
-									<br/> 对象的实际宽度就等于设置的width值，即使定义有border和padding也不会改变对象的实际宽度，即( Element width = width )</p>
-								<p class="col-md-12 text-warning">纵向margin的重叠(塌陷) :</p>
-								<p class="col-md-11 col-md-offset-1">margin属性在纵向相遇时,会出现塌陷,或者叫吃掉的现象.表现行为:
-									<br/><span class="col-md-offset-1">margin值相同  --> 距离为一个margin值, 吃掉一个margin值</span>
-									<br /><span class="col-md-offset-1">margin值不同 --> 距离为margin较大者, 大的margin值吃掉小的margin值</span>
-								</p>
-							</li>
-							<li class="container">
-								<h3>1.3. js jquery获取元素高度、宽度的方式</h3>
-								<p class="text-warning col-md-12">js方式 : </p>
-								<p class="col-md-11 col-md-offset-1"><span class="col-md-7">element.offsetWidth | element.offsetHeight</span>
-									<span class="col-md-5 text-danger">= content + padding + border</span></p>
-								<p class="text-warning col-md-12">jquery方式 :</p>
-								<p class="col-md-11 col-md-offset-1"><span class="col-md-7">$(element).height() | $(element).width()</span>
-									<span class="col-md-5 text-danger">= content</span></p>
-								<p class="col-md-11 col-md-offset-1"><span class="col-md-7">$(element).innerHeight() | $(element).innerWidth()</span>
-									<span class="col-md-5 text-danger">= content  + padding </span></p>
-								<p class="col-md-11 col-md-offset-1"><span class="col-md-7">$(element).outerHeight() | $(element).outerWidth()</span>
-									<span class="col-md-5 text-danger">= content + padding + border</span></p>
-								<p class="col-md-11 col-md-offset-1"><span class="col-md-7">$(element).outerHeight(true) | $(element).outerWidth(true)</span>
-									<span class="col-md-5 text-danger">= content + padding + border + margin</span></p>
-							</li>
-						</ul>
-					</li>
-					<li>
-						<h2>2. 布局、定位、浮动</h2>
-						<ul class="list-unstyled sj">
-							<li class="container">
-								<h3>2.1. position的四种方式</h3>
-								<p class="text-primary col-md-12">static | relative | absolute | fixed</p>
-								<p class="text-warning col-md-12">static 默认值</p>
-								<p class="col-md-11 col-md-offset-1">在恢复默认定位时,或控制标准定位时使用</p>
-								<p class="text-warning col-md-12"> relative 的特点</p>
-								<p class="col-md-11 col-md-offset-1">1. 仍处于标准文档流</p>
-								<p class="col-md-11 col-md-offset-1">2. 相对于自身原有的位置进行定位偏移</p>
-								<p class="col-md-11 col-md-offset-1">3. 获得偏移量 和 z-index属性</p>
-								<p class="text-danger col-md-12 col-md-offset-1">重点解释
-									<br/><span class="col-md-11 col-md-offset-1">1. 不会脱离标准文档流: 即在元素出现的位置出现,并相对这个位置作为基准偏移</span>
-									<br/><span class="col-md-11 col-md-offset-1">2. 当未设置偏移量:元素仍处于原位置,其后面的元素无影响,但此元素获得z-index属性</span>
-									<br/><span class="col-md-11 col-md-offset-1">3. 当设置偏移量:元素获得z-index属性,并相对其原位置偏移,浮于标准文档流上方,页面中保留该元素的占位</span>
-								</p>
-								<p class="text-warning col-md-12"> absolute 的特点</p>
-								<p class="col-md-11 col-md-offset-1">1. 完全脱离标准文档流</p>
-								<p class="col-md-11 col-md-offset-1">2. 相对于距离最近的已定位的祖先元素进行定位偏移</p>
-								<p class="col-md-11 col-md-offset-1">3. 获得偏移属性 和 z-index属性</p>
-								<p class="text-danger col-md-12 col-md-offset-1">重点解释
-									<br/><span class="col-md-11 col-md-offset-1">1. 脱离文档流: 即是其后面出现的元素会替代其出现的位置表现,当前元素会浮于文档流上方,即获得z-index属性</span>
-									<br/><span class="col-md-11 col-md-offset-1">2. 当未设置偏移量:无论是否存在已定位的祖先元素,都会保持元素初始的位置定位,脱离文档流,获得z-index属性</span>
-									<br/><span class="col-md-2 col-md-offset-1">3. 当设置偏移量:</span>
-									<span class="col-md-9">a.不存在定位的祖先元素,以<code>html</code>标签作为基准定位
-										<br/> b. 存在定位的祖先元素,以距离其最近的祖先元素作为基准定位</span>
-								</p>
-								<p class="text-warning col-md-12"> fixed 的特点</p>
-								<p class="col-md-11 col-md-offset-1">1. 完全脱离标准文档流</p>
-								<p class="col-md-11 col-md-offset-1">2. 无论是否有祖先元素，均以浏览器可视窗口进行定位偏移</p>
-								<p class="col-md-11 col-md-offset-1">3. 获得偏移属性 和 z-index属性</p>
-								<p class="text-danger col-md-12 col-md-offset-1">重点解释 -- 与absolute的区别
-									<br/><span class="col-md-11 col-md-offset-1">1. 始终以浏览器可视窗口定位,不会跟随滚动条滚动，滑出屏幕</span>
-									<br/><span class="col-md-11 col-md-offset-1">2. 当出现滚动条时,文档流中的z-index值小于该元素的元素会从该元素下方穿过</span>
-								</p>
-							</li>
-							<li class="container">
-								<h3>2.2. 浮动</h3>
-								<p class="col-md-12 text-primary">
-									<span class="col-md-2">浮动产生的原因：</span>
-									<span class="col-md-10">一般是一个盒子里使用了CSS float浮动属性，导致父级对象盒子不能被撑开，这样CSS float浮动就产生了。
-									浮动会使当前标签产生向上浮的效果，同时会影响到前后标签、父级标签的位置及 width height 属性</span></p>
-								<p class="text-warning col-md-12"> <span class="col-md-3">清除浮动的几种方式</span></p>
-								<p class="col-md-11 col-md-offset-1">1. 设置父级div的height(不推荐，除非固定height值)</p>
-								<p class="col-md-11 col-md-offset-1">2. 子元素结尾处加空div标签 clear:both(不推荐，增加无意义标签) </p>
-								<p class="col-md-11 col-md-offset-1">3. 父级div定义 伪类:after 和 zoom<br/>
-									<pre class="col-md-6 col-md-offset-2">
-										.clearfloat:after{
-											display:block;
-											clear:both;
-											content:"";
-											visibility:hidden;
-											height:0;
-										} //ie8+才支持after伪类
-										.clearfloat{
-											zoom:1
-										} //zoom(IE转有属性)可解决ie6,ie7浮动问题 </pre>
-								</p>
-								<p class="col-md-11 col-md-offset-1">4. 父级div定义 overflow:hidden 和 width 的值 (不能和position配合使用，因为超出的尺寸的会被隐藏)</p>
-								<p class="col-md-11 col-md-offset-1">5. 父级div定义 overflow:auto 和 width 的值 (不推荐使用，内部宽高超过父级div时，会出现滚动条)</p>
-							</li>
-							<li class="container">
-								<h3>2.3. z-index</h3>
-								<p class="text-primary col-md-12">重要概念</p>
-								<p class="col-md-12"><span class="col-md-2 text-warning">层叠上下文</span><span class="-col-md-10">相对于文档流中的普通元素而言,层叠上下文元素指获得z轴属性,即浮于普通元素上方并获得层叠顺序规则的限制</span></p>
-								<p class="text-primary col-md-12">重要规则</p>
-								<p class="col-md-12">
-									<img class="col-md-6 sf-8" src="img/zorder.jpg" alt="层叠顺序规则图" />
+		<div class="main-body">
+			<div id="wrap" class="wrap">
+				<div id="page-1" class="page">
+					<h2 class="">个人简介</h2>
+					<img class="border-circle" src="img/jl-self-02.jpg" />
+					<img class="border-circle" src="img/jl-self-01.JPG" />
+					<div class="self-info ">
+						<p class=""><span class="panel-left ">姓名</span><span class="panel-right ">毕文清</span></p>
+						<p><span class="panel-left ">性别</span><span class="panel-right ">男</span></p>
+						<p><span class="panel-left ">毕业院校</span><span class="panel-right ">石家庄经济学院</span></p>
+						<p><span class="panel-left ">专业</span><span class="panel-right ">软件工程</span></p>
+						<p><span class="panel-left ">电话</span><span class="panel-right ">18131611378</span></p>
+						<p><span class="panel-left ">邮箱</span><span class="panel-right ">merfais.bwq@163.com</span></p>
+					</div>
 
-									<span class="col-md-6 sjt-2">1 . backgroud/border | block块状盒子 | float浮动盒子 | inline/inline-block盒子 属于普通元素级别<br/><br/>
-										2 . 负z-index | z-index:auto/z-index:0/不依赖z-inde的层叠上下文 | 正z-index 属于获得层叠上下文属性的元素级别<br/><br/>
-										3 . 定位元素(position:relative | absolute | fixed) z-index就是默认的auto级<br/></span>
+				</div>
+				<div id="page-2" class="page">
+					<h2>自我评价</h2>
+					<div class="page-content">
+						<div class="p2-box">
+							<div class="border-b"></div>
+							<div class="border-s"></div>
+							<div id="p2-content-1" class="content">
+								<p>求知</p>
+							</div>
+							<div id="p2-tips-1" class="tips">
+								<p>追其源，求其本，方游刃有余</p>
+							</div>
+						</div>
+						<div class="p2-box">
+							<div class="border-b"></div>
+							<div class="border-s"></div>
+							<div id="p2-content-2" class="content">
+								<p>勤奋</p>
+							</div>
+							<div id="p2-tips-2" class="tips">
+								<p>吾日三省吾身，厚积薄发，天道酬勤</p>
+							</div>
+						</div>
+						<div class="p2-box">
+							<div class="border-b"></div>
+							<div class="border-s"></div>
+							<div id="p2-content-3" class="content">
+								<p>协作</p>
+							</div>
+							<div id="p2-tips-3" class="tips">
+								<p>取长补短，各尽其能</p>
+							</div>
+						</div>
+						<div class="p2-box">
+							<div class="border-b"></div>
+							<div class="border-s"></div>
+							<div id="p2-content-4" class="content">
+								<p>逻辑</p>
+							</div>
+							<div id="p2-tips-4" class="tips">
+								<p>归纳总结，循环判断，条理清晰，世界尽在掌握</p>
+							</div>
+						</div>
+						<div class="p2-box">
+							<div class="border-b"></div>
+							<div class="border-s"></div>
+							<div id="p2-content-5" class="content">
+								<p>坚持</p>
+							</div>
+							<div id="p2-tips-5" class="tips">
+								<p>不积跬步无以至千里，不忘初心，方得始终</p>
+							</div>
+						</div>
+						<div class="p2-box">
+							<div class="border-b"></div>
+							<div class="border-s"></div>
+							<div id="p2-content-6" class="content">
+								<p>创新</p>
+							</div>
+							<div id="p2-tips-6" class="tips">
+								<p>进步源于科技，科技源于创新</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="page-3" class="page">
+					<h2>专业技能</h2>
+					<div class="page-content">
+						<div class="p3-box">
+							<div id="p3-title-1" class="title"></div>
+							<div id="p3-content-1" class="content">
+								<p>熟悉标签语义化，SEO优化</p>
+								<p>熟悉DOM操控，添加、删除、模板替换</p>
+								<p>熟悉DOM事件绑定</p>
+							</div>
+						</div>
+						<div class="p3-box">
+							<div id="p3-title-2" class="title"></div>
+							<div id="p3-content-2" class="content">
+								<p>熟悉盒子模型</p>
+								<p>熟悉定位、浮动、标准文档流</p>
+								<p>熟悉动画、位移、旋转、变形、过渡</p>
+								<p>了解bootstrap框架</p>
+							</div>
+						</div>
+						<div class="p3-box">
+							<div id="p3-title-3" class="title"></div>
+							<div id="p3-content-3" class="content">
+								<p>熟悉事件冒泡，事件绑定、删除</p>
+								<p>熟悉面向对象、继承，闭包</p>
+								<p>熟悉模块化编程，代码优化与重构</p>
+								<p>熟练使用jquery库，了解AngularJs库</p>
+							</div>
+						</div>
+					</div>
+					<div id="page-4" class="page">
+						<h2>项目经验</h2>
+						<div class="page-content">
+							<div class="p4-box">
+								<ul>
+									<li>
+										<div id="p4-item-1" class="item">本案</div>
+										<div id="p4-detail-1" class="detail">
 
-								</p>
-								<p class="text-warning col-md-2">层叠准则 </p>
-								<p class="col-md-11 col-md-offset-1">
-									a . <b>谁大谁上</b>：当具有明显的层叠水平标示的时候，如识别的z-indx值，在同一个层叠上下文领域(兄弟节点)，层叠水平值大的那一个覆盖小的那一个。<br/> b . <b>后来居上</b>：当元素的层叠水平一致、层叠顺序相同的时候(兄弟节点)，在DOM流中处于后面的元素会覆盖前面的元素。<br/> c . <b>子承父业</b>：层叠上下文可以嵌套，内部层叠上下文及其所有子元素均受制于外部的层叠上下文。
-								</p>
+										</div>
+									</li>
+									<li>
+										<div id="p4-item-1" class="item">2048</div>
+										<div id="p4-detail-1" class="detail">
 
-								<p class="text-warning col-md-12">获取层叠上下文属性的方式</p>
-								<p class="col-md-11 col-md-offset-1">1 ) . position定位 relative | absolute | fixed
-									<span class="col-md-11 col-md-offset-1">对于包含有position:relative/position:absolute的定位元素，
-										以及FireFox/IE浏览器（不包括Chrome等webkit内核浏览器）
-										（目前，也就是2016年初是这样）下含有position:fixed声明的定位元素，
-										当其z-index值不是auto的时候，会创建层叠上下文.
-										而z-index一旦变成数值，哪怕是0，都会创建一个层叠上下文。
-									</span>
-								</p>
-								<p class="col-md-11 col-md-offset-1">2 ) . z-index值不为auto的flex项(父元素display:flex|inline-flex).</p>
-								<p class="col-md-11 col-md-offset-1">3 ) . 元素的opacity值不是1.</p>
-								<p class="col-md-11 col-md-offset-1">4 ) . 元素的transform值不是none.</p>
-								<p class="col-md-11 col-md-offset-1">5 ) . 元素mix-blend-mode值不是normal.</p>
-								<p class="col-md-11 col-md-offset-1">6 ) . 元素的filter值不是none.</p>
-								<p class="col-md-11 col-md-offset-1">7 ) . 元素的isolation值是isolate.</p>
-								<p class="col-md-11 col-md-offset-1">8 ) . will-change指定的属性值为上面任意一个。</p>
-								<p class="col-md-11 col-md-offset-1">9 ) . 元素的-webkit-overflow-scrolling设为touch.</p>
-								<p class="text-success col-md-12">z-index 相关参考
-									<a href="http://www.zhangxinxu.com/wordpress/2016/01/understand-css-stacking-context-order-z-index/" rel="nofollow" target="_blank">深入理解CSS中的层叠上下文和层叠顺序--张鑫旭</a>
-								</p>
+										</div>
+									</li>
+									<li>
+										<div id="p4-item-1" class="item">瀑布流</div>
+										<div id="p4-detail-1" class="detail">
 
-							</li>
-						</ul>
-					</li>
-					<li>
-						<h2>3. 样式表、选择器</h2>
-						<ul class="list-unstyled sj">
-							<li class="container">
-								<h3>3.1. 样式表方式及优先级</h3>
-								<p class="text-primary col-md-12">样式表的三种方法</p>
-								<p class="col-md-11 col-md-offset-1">内联式 (style="") 、 嵌入式 (&lt; style type="text/css"&gt;&lt;"/style&gt;) 、 外部式 (&lt;link rel="" type="text/css" href="" /&gt;)</p>
-								<p class="text-primary col-md-12">样式表的优先级</p>
-								<p class="col-md-11 col-md-offset-1">就近原则（离被设置元素越近优先级别越高）。因此 --> 内联式 > 嵌入式 、 外部式</p>
-							</li>
-							<li class="container">
-								<h3>3.2. 选择器的方式及优先级</h3>
-								<p class="text-primary col-md-12">css选择器</p>
-								<p class="col-md-11 col-md-offset-1">标签选择器 、 类选择器 、 ID选择器</p>
-								<p class="text-primary col-md-12">选择的优先级</p>
-								<p class="col-md-11 col-md-offset-1">ID选择器 > 类选择器 > 标签选择器</p>
-								<p class="text-primary col-md-12">重要提示</p>
-								<p class="col-md-11 col-md-offset-1">1 ) . 选择器的权重 --> 标签选择器 elememt=1; 类选择器 .class=10; ID选择器 #id=100 选择器的权重是可以叠加的</p>
-								<p class="col-md-11 col-md-offset-1">2 ) . 样式表是可以继承的，继承来的权重最低。
-									<span class="col-md-11 col-md-offset-1">不可继承的样式：基本属于盒子模型的属性不能被继承。<br />display、margin、border、padding、background、height、width
-																		、overflow、position、left、right、top、bottom、z-index、float、clear、</span>
-								</p>
-								<p class="col-md-11 col-md-offset-1">3 ) . !important 权重是最高的,无法超越的</p>
-								<p class="col-md-11 col-md-offset-1">4 ) . 层叠样式表,层叠的概念 : 即权重相同的情况下，后面出现的样式覆盖前面出现的样式</p>
-								<p class="text-primary col-md-12">样式的优先级排序(由大到小)</p>
-								<p class="text-success col-md-11 col-md-offset-1"> <strong> !important > 内联的  > #id > .class > element > 继承的 </strong></p>
-								<img class="col-md-10 col-md-offset-1 sf-8" src="img/classorder.jpg" alt="样式优先级演示图" />
+										</div>
+									</li>
+									<li>
+										<div id="p4-item-1" class="item">门户官网</div>
+										<div id="p4-detail-1" class="detail">
 
-							</li>
-						</ul>
-					</li>
-					<li>
-						<h2>4. 事件 event</h2>
-					</li>
-					<li>
-						<h2>5. 闭包</h2>
-					</li>
-					<li>
-						<h2>6. 继承 类对象</h2>
-					</li>
-					<li>
-						<h2>7. 异步请求 ajax</h2>
-					</li>
-					
-					<li>
-						<h2>8. 其他</h2>
-						<ul class="list-unstyled sj">
-							<li class="container">
-								<h3>CSS hack</h3>
-								<p> <pre>
-									.bb{
-										background-color:#f1ee18;/*所有识别*/
-										.background-color:#00deff\9; /*IE6、7、8识别*/
-										+background-color:#a200ff;/*IE6、7识别*/
-										_background-color:#1e0bd1;/*IE6识别*/
-									} </pre></p>
-							</li>
-							<li class="container">
-								<h3>普通元素居中,定位元素的居中</h3>
-								<p>普通元素居中：  margin-left: auto; margin-right: auto</p>
-								<p>定位元素居中: left:50%; margin-left:(-width/2)px</p>
-							</li>
-							<li class="container">
-								<h3>正则表达式</h3>
-								<p></p>
-							</li>
-						</ul>
-					</li>
-				</ul>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="page-5" class="page">
+						<h2>联系我</h2>
+						<div class="page-content">
+							<p>谢谢您百忙之中的阅读</p>
+							<p>在下不才，恳请您给我一个支点</p>
+							<p>我能翘起地球</p>
+							<p>毕文清181-3161-1378</p>
+							<p>坐标：北京</p>
+						</div>
+					</div>
+
+				</div>
 			</div>
-		</div>
+			<div class="foot">
 
-		<div class="foot"></div>
+			</div>
+			<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
 	</body>
 
 </html>
